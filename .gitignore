@@ -1,0 +1,21 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdfsync
+*.synctex.gz
+*.toc
+*.xdv
+
+# Editor / OS files
+.DS_Store
+Thumbs.db
+
+# Local runtime
+*.swp
+*.tmp

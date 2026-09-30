@@ -1,0 +1,663 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=25mm,headheight=15pt]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\graphicspath{{../evidence/}}
+
+% ---------- Visual system ----------
+\definecolor{navy}{HTML}{17365D}
+\definecolor{bluegray}{HTML}{44546A}
+\definecolor{lightblue}{HTML}{EAF2F8}
+\definecolor{lightgray}{HTML}{F4F6F7}
+\definecolor{bordergray}{HTML}{D5D8DC}
+\definecolor{codebg}{HTML}{F7F7F7}
+\definecolor{missingbg}{HTML}{FFF8E7}
+\definecolor{missingborder}{HTML}{D6A84F}
+\definecolor{dark}{HTML}{222222}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=navy,
+  urlcolor=navy,
+  citecolor=navy,
+  pdftitle={Computer Networks Project Documentation -- Phase 1},
+  pdfauthor={Student},
+  pdfsubject={Phase 1 Computer Networks Project}
+}
+
+\titleformat{\section}{\Large\bfseries\color{navy}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\bfseries\color{bluegray}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{dark}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{20pt}{8pt}
+\titlespacing*{\subsection}{0pt}{14pt}{6pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Computer Networks Project}
+\rhead{Phase 1}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\setlist[itemize]{leftmargin=1.5em,itemsep=2pt,topsep=3pt}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=3pt,topsep=3pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+
+\captionsetup{font=small,labelfont=bf,labelsep=colon}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  backgroundcolor=\color{codebg},
+  frame=single,
+  rulecolor=\color{bordergray},
+  breaklines=true,
+  columns=fullflexible,
+  keepspaces=true,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny\color{bluegray},
+  xleftmargin=2em,
+  framexleftmargin=1.5em
+}
+
+\newcommand{\img}[3][0.88\textwidth]{%
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=#1,height=0.80\textheight,keepaspectratio]{#2}
+    \caption{#3}
+  \end{figure}
+}
+
+\newcommand{\missingfigure}[2]{%
+\begin{figure}[H]
+\centering
+\begin{tcolorbox}[width=0.90\textwidth,colback=missingbg,colframe=missingborder,boxrule=0.7pt]
+\textbf{Evidence required:} #1\\[3pt]
+\textit{Add the image as \texttt{\detokenize{#2}} before final submission.}
+\end{tcolorbox}
+\caption{Pending evidence: #1}
+\end{figure}
+}
+
+\newcommand{\statusbox}[2]{%
+\begin{tcolorbox}[colback=lightgray,colframe=bordergray,boxrule=0.5pt]
+\textbf{#1:} #2
+\end{tcolorbox}}
+
+\begin{document}
+
+% ---------- Cover ----------
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{2.2cm}
+{\Large\bfseries COMPUTER NETWORKS PROJECT\par}
+\vspace{0.7cm}
+{\Huge\bfseries Phase 1 Documentation\par}
+\vspace{1.0cm}
+\rule{0.72\textwidth}{1pt}\par
+\vspace{0.7cm}
+{\large Private LAN, DNS, Backend Services, Reverse Proxy,\par}
+{\large HTTPS/TLS, HTTP Caching and Protocol Analysis\par}
+\vspace{1.5cm}
+
+\begin{tcolorbox}[width=0.78\textwidth,colback=lightblue,colframe=navy,boxrule=0.7pt]
+\centering
+\textbf{Phase 1 Scope}\par
+Private network deployment using four Ubuntu VMs, private DNS using \texttt{dnsmasq}, Python backend services, nginx reverse proxy/load balancing, local CA based HTTPS/TLS, HTTP caching, and Wireshark protocol analysis.
+\end{tcolorbox}
+
+\vfill
+\begin{tabular}{rl}
+\textbf{Student:} & Krishiv Gupta\\[8pt]
+\textbf{Enrollment:} & 2401010235\\[8pt]
+\textbf{Course:} & Computer Networks\\[8pt]
+\textbf{School:} & Newton School of Technology\\[8pt]
+\textbf{Institution:} & Rishihood University\\[8pt]
+\textbf{Submission:} & Phase 1\\[8pt]
+\end{tabular}
+\vspace{1cm}
+
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\tableofcontents
+\newpage
+
+% ---------- Executive summary ----------
+\section{Project Overview}
+This document presents Phase 1 of the Computer Networks project. The implementation establishes a private four-VM network and builds a small service stack in which a client resolves a private application name, connects to an nginx edge server, and is forwarded to one of two backend services. HTTPS/TLS is added at the edge, HTTP caching headers are implemented by the backends, and protocol-level behaviour is intended to be demonstrated through Wireshark captures.
+
+\subsection{Phase 1 Objectives}
+The supplied documentation defines the following Phase 1 objectives:
+\begin{enumerate}
+  \item Establish a private LAN and verify VM-to-VM reachability.
+  \item Configure a private DNS resolver using \texttt{dnsmasq}.
+  \item Build Backend A and Backend B as Python HTTP/REST services.
+  \item Configure nginx as an edge reverse proxy and round-robin load balancer.
+  \item Add HTTPS/TLS using a locally created certificate authority and server certificate.
+  \item Demonstrate HTTP caching behaviour using ETag and Cache-Control.
+  \item Capture and analyse DNS, TCP/TLS, HTTP and load-balancing traffic with Wireshark.
+\end{enumerate}
+
+\statusbox{Evidence status}{The supplied Phase 1 evidence package has now been incorporated. The report includes the Wireshark screenshots and capture files specified for Task G, Postman evidence for ETag/Cache-Control and 304 validation for Backend A and Backend B, and HTTPS verification evidence for the application endpoint.}
+
+% ---------- Architecture ----------
+\section{Phase 1 Network Architecture}
+
+\subsection{Private Network Parameters}
+The private network is configured as \texttt{10.211.55.0/24} with gateway \texttt{10.211.55.1}. Four Ubuntu virtual machines participate in the network. The source documentation identifies the VM roles, addresses, interface and MAC information as shown below.
+
+\begin{table}[H]
+\centering
+\caption{Phase 1 VM addressing and roles}
+\label{tab:vm-addressing}
+\small
+\begin{tabularx}{\textwidth}{@{}l >{\RaggedRight\arraybackslash}X l c l l@{}}
+\toprule
+\textbf{VM} & \textbf{Role} & \textbf{IPv4} & \textbf{Prefix} & \textbf{Interface} & \textbf{MAC}\\
+\midrule
+\texttt{dns01} & DNS + Client & 10.211.55.5 & /24 & \texttt{enp0s5} & 00:1c:42:33:e1:29\\
+\texttt{edge01} & nginx / Edge & 10.211.55.6 & /24 & \texttt{enp0s5} & 00:1c:42:56:b5:e8\\
+\texttt{app01} & Backend A & 10.211.55.7 & /24 & \texttt{enp0s5} & 00:1c:42:8c:63:30\\
+\texttt{app02} & Backend B + Client & 10.211.55.8 & /24 & \texttt{enp0s5} & 00:1c:42:9d:5c:ed\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\img{images/fig05_phase1_topology.png}{Phase 1 topology: four Ubuntu VMs connected to the private network \texttt{10.211.55.0/24}.\label{fig:topology}}
+
+% ---------- Task A ----------
+\section{Task A -- Establish Private LAN}
+
+\subsection{Connection Establishment}
+The private network uses the \texttt{10.211.55.0/24} subnet. The four VMs are configured with static addresses in the same subnet and use \texttt{10.211.55.1} as the gateway.
+
+\subsection{Reachability Verification}
+VM-to-VM connectivity was tested using ICMP echo requests. The supplied evidence shows successful ping responses with 0\% packet loss from the documented source VM to the other private-network addresses.
+
+\img{images/fig01_lan_ping_dns01.png}{Connectivity verification from \texttt{dns01} to the other private-network VMs.\label{fig:ping-dns01}}
+\img{images/fig02_lan_ping_edge01.png}{Connectivity verification from \texttt{edge01}.\label{fig:ping-edge01}}
+\img{images/fig03_lan_ping_app01.png}{Connectivity verification from \texttt{app01}.\label{fig:ping-app01}}
+\img{images/fig04_lan_ping_app02.png}{Connectivity verification from \texttt{app02}.\label{fig:ping-app02}}
+
+\statusbox{Task A status}{The source contains network parameters, VM role/address information and ping evidence. No additional technical configuration is required for the written section.}
+
+% ---------- Task B ----------
+\section{Task B -- Configure Private DNS Server}
+
+\subsection{dnsmasq Configuration}
+Private DNS is configured on \texttt{dns01} (\texttt{10.211.55.5}) using \texttt{dnsmasq}. The configuration file is:
+
+\begin{lstlisting}[language=bash]
+/etc/dnsmasq.d/cn-project.conf
+\end{lstlisting}
+
+The documented private records are:
+
+\begin{table}[H]
+\centering
+\caption{Private DNS records}
+\begin{tabular}{ll}
+\toprule
+\textbf{DNS record} & \textbf{Resolved address}\\
+\midrule
+\texttt{app.cn.test} & \texttt{10.211.55.6}\\
+\texttt{api.cn.test} & \texttt{10.211.55.6}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\img{images/fig06_dnsmasq_configuration.png}{Private \texttt{dnsmasq} configuration for the project DNS records.\label{fig:dnsmasq}}
+
+\subsection{DNS Resolution Verification with dig}
+The supplied screenshots demonstrate resolution of both private names and show the returned address \texttt{10.211.55.6}.
+
+\img{images/fig07_dns_dig_app.png}{\texttt{dig app.cn.test} resolution on the edge host.\label{fig:dig-app}}
+\img{images/fig08_dns_dig_api.png}{\texttt{dig api.cn.test} resolution.\label{fig:dig-api}}
+
+\subsection{DNS Resolution Verification with nslookup}
+The documentation additionally verifies the same records using \texttt{nslookup} from the documented hosts.
+
+\img{images/fig09_dns_nslookup_app_edge.png}{\texttt{nslookup app.cn.test} verification.\label{fig:nslookup-app-edge}}
+\img{images/fig10_dns_nslookup_api_edge.png}{\texttt{nslookup api.cn.test} verification.\label{fig:nslookup-api-edge}}
+\img{images/fig11_dns_nslookup_app_client.png}{Additional \texttt{nslookup app.cn.test} verification from the client environment.\label{fig:nslookup-app-client}}
+\img{images/fig12_dns_nslookup_api_client.png}{Additional \texttt{nslookup api.cn.test} verification from the client environment.\label{fig:nslookup-api-client}}
+
+\subsection{Why Does nslookup Show 127.0.0.53?}
+Ubuntu commonly exposes a local \texttt{systemd-resolved} stub resolver at \texttt{127.0.0.53}. The documented resolution path is:
+
+\begin{center}
+\texttt{Application}\quad$\rightarrow$\quad\texttt{127.0.0.53}\quad$\rightarrow$\quad\texttt{systemd-resolved}\quad$\rightarrow$\quad\texttt{10.211.55.5}\quad$\rightarrow$\quad\texttt{dnsmasq}\quad$\rightarrow$\quad\texttt{10.211.55.6}
+\end{center}
+
+\subsection{DNS Resolution Versus TCP/HTTPS}
+DNS resolution and the subsequent TCP/HTTPS connection are separate operations. DNS maps the application name to an IP address. The client then uses the resulting IP address to establish TCP, followed by the TLS/HTTPS handshake and encrypted HTTP communication.
+
+\begin{tcolorbox}[colback=lightblue,colframe=navy,boxrule=0.5pt]
+\textbf{DNS:} Name $\rightarrow$ IP address\\
+\textbf{TCP/HTTPS:} IP address $\rightarrow$ connection establishment $\rightarrow$ data exchange
+\end{tcolorbox}
+
+% ---------- Task C ----------
+\section{Task C -- Build Backend Services A and B}
+
+\subsection{Backend A -- app01}
+Backend A runs on \texttt{app01}, address \texttt{10.211.55.7}, port \texttt{3001}. It is implemented as a Python HTTP/REST service and is started using \texttt{python3 app.py}.
+
+\begin{table}[H]
+\centering
+\caption{Backend A configuration and documented responses}
+\begin{tabular}{ll}
+\toprule
+\textbf{Property} & \textbf{Value}\\
+\midrule
+VM & \texttt{app01}\\
+IP & \texttt{10.211.55.7}\\
+Port & \texttt{3001}\\
+Application & Python HTTP/REST Service\\
+Command & \texttt{python3 app.py}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Backend A API behaviour}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Documented response/header}\\
+\midrule
+GET & \texttt{/} & backend A, status running\\
+GET & \texttt{/api/status} & backend A, status ok\\
+GET & Response header & \texttt{X-Backend: A}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\img{images/fig14_backend_a_code.png}{Backend A Python HTTP/REST service implementation.\label{fig:backend-a}}
+
+\subsection{Backend B -- app02}
+Backend B runs on \texttt{app02}, address \texttt{10.211.55.8}, port \texttt{3002}. It is implemented as a Python HTTP/REST service and is started using \texttt{python3 app.py}.
+
+\begin{table}[H]
+\centering
+\caption{Backend B configuration and documented responses}
+\begin{tabular}{ll}
+\toprule
+\textbf{Property} & \textbf{Value}\\
+\midrule
+VM & \texttt{app02}\\
+IP & \texttt{10.211.55.8}\\
+Port & \texttt{3002}\\
+Application & Python HTTP/REST Service\\
+Command & \texttt{python3 app.py}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Backend B API behaviour}
+\begin{tabular}{lll}
+\toprule
+\textbf{Method} & \textbf{Endpoint} & \textbf{Documented response/header}\\
+\midrule
+GET & \texttt{/} & backend B, status running\\
+GET & \texttt{/api/status} & backend B, status ok\\
+GET & Response header & \texttt{X-Backend: B}\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\img{images/fig15_backend_b_code.png}{Backend B Python HTTP/REST service implementation.\label{fig:backend-b}}
+
+% ---------- Task D ----------
+\section{Task D -- Edge, Reverse Proxy and Load Balancer}
+
+\subsection{nginx Configuration}
+A dedicated nginx site configuration was created at:
+
+\begin{lstlisting}[language=bash]
+/etc/nginx/sites-available/cn-project
+\end{lstlisting}
+
+The upstream group contains Backend A at \texttt{10.211.55.7:3001} and Backend B at \texttt{10.211.55.8\allowbreak:3002}. The edge server exposes the application through the domain \texttt{app.cn.test}.
+
+\img{images/fig16_nginx_reverse_proxy_config.png}{nginx upstream and reverse-proxy configuration.\label{fig:nginx-config}}
+
+\subsection{Round-Robin Verification}
+The supplied verification demonstrates repeated requests to the same application endpoint being served alternately by Backend A and Backend B. The response header \texttt{X-Backend} identifies the backend that handled each request.
+
+\img{images/fig17_nginx_round_robin_verification.png}{Repeated requests demonstrating round-robin backend selection.\label{fig:round-robin}}
+
+\subsection{Why the Client Does Not Need Backend IP Addresses}
+The client interacts with the edge domain rather than directly addressing the backend servers. The documented traffic path is:
+
+\begin{center}
+\texttt{Client $\rightarrow$ app.cn.test $\rightarrow$ nginx/Edge $\rightarrow$ Backend A or Backend B}
+\end{center}
+
+Nginx uses its load-balancing configuration to select the backend. Thus, the client needs the application domain/edge endpoint rather than the individual backend addresses.
+
+
+% ---------- Task E ----------
+\section{Task E -- HTTPS / TLS Addition}
+
+\subsection{Certificate Directory and Local CA}
+A dedicated nginx certificate directory was created at \texttt{/etc/nginx/cn-certs}. The documentation describes a 2048-bit RSA private key for the local CA and a self-signed CA certificate generated from that key.
+
+\img{images/fig18_ca_private_key.png}{Creation of the private key for the local certificate authority.\label{fig:ca-key}}
+\img{images/fig19_ca_certificate.png}{Creation of the self-signed local CA certificate.\label{fig:ca-cert}}
+
+\subsection{Server Key and CSR}
+A 2048-bit RSA private key and a certificate signing request (CSR) were created for \texttt{app.cn.test}.
+
+\img{images/fig20_server_key_or_csr.png}{Server key/CSR generation evidence.\label{fig:server-key-csr}}
+
+\subsection{Subject Alternative Name (SAN)}
+The SAN configuration binds the certificate to the intended hostname and marks the certificate for server authentication. The documented SAN is \texttt{DNS:app.cn.test}.
+
+\img{images/fig21_san_configuration.png}{Subject Alternative Name configuration for \texttt{app.cn.test}.\label{fig:san}}
+
+\subsection{Certificate Signing and Verification}
+The server CSR was signed using the local CA. The resulting certificate was then checked for identity, issuer, validity and SAN information.
+
+\img{images/fig22_signed_server_certificate.png}{Signing the server certificate with the local CA.\label{fig:certificate-signing}}
+\img{images/fig23_certificate_verification.png}{Verification of certificate identity, issuer and SAN.\label{fig:certificate-verification}}
+
+\subsection{nginx HTTPS Configuration}
+The nginx configuration was updated to listen on TCP port 443 and use the generated server certificate and private key.
+
+\img{images/fig24_nginx_https_config.png}{nginx HTTPS configuration.\label{fig:nginx-https}}
+
+\subsection{Installing the Private CA into the Trust Store}
+The local CA was installed into the system trust store and the certificate database was updated.
+
+\img{images/fig25_ca_trust_store_installation.png}{Installation of the private CA into the system trust store.\label{fig:trust-store}}
+
+\subsection{TLS Handshake}
+The documented handshake explanation is:
+\begin{enumerate}
+  \item \textbf{ClientHello:} the client proposes supported TLS versions and cryptographic options.
+  \item \textbf{ServerHello:} the server selects the TLS version and cryptographic parameters.
+  \item \textbf{Certificate:} the server presents its certificate so the client can verify its identity.
+  \item \textbf{Key Exchange:} the peers establish the shared secret/key used to protect the connection.
+  \item \textbf{Finished:} both sides verify successful handshake completion; encrypted application data can then be exchanged.
+\end{enumerate}
+
+\img{images/fig42_https_final_verification_a.png}{Successful HTTPS request to \texttt{https://app.cn.test/api/status} showing a successful Backend A response through the nginx edge.\label{fig:https-final-a}}
+\img{images/fig43_https_final_verification_b.png}{Successful HTTPS request to \texttt{https://app.cn.test/api/status} showing a successful Backend B response through the nginx edge.\label{fig:https-final-b}}
+
+% ---------- Task F ----------
+\section{Task F -- HTTP Caching Behaviour}
+
+\subsection{Cache-Control and ETag}
+The Backend A and Backend B implementations were updated to include ETag and Cache-Control response headers. The documented cache lifetime is 60 seconds. The ETag acts as a representation identifier; once a cached representation is stale, the client/cache can validate it with the server using the \texttt{If-None-Match} request header instead of downloading the full representation again.
+
+The backend source screenshots in Task C contain the corresponding implementation changes.
+
+\begin{tcolorbox}[colback=lightblue,colframe=navy,boxrule=0.5pt]
+\textbf{Expected validation flow:}\\
+Initial request $\rightarrow$ HTTP 200 + ETag + Cache-Control\\
+Subsequent validation $\rightarrow$ \texttt{If-None-Match} $\rightarrow$ HTTP 304 Not Modified when the representation is unchanged.
+\end{tcolorbox}
+
+\img{images/fig38_backend_a_cache_headers.png}{Backend A over HTTPS: \texttt{Cache-Control: max-age=60} and an ETag are returned with HTTP 200.\label{fig:cache-a-headers}}
+\img{images/fig39_backend_a_cache_304.png}{Backend A cache validation using \texttt{If-None-Match}, resulting in HTTP 304 Not Modified.\label{fig:cache-a-304}}
+\img{images/fig40_backend_b_cache_headers.png}{Backend B over HTTPS: \texttt{Cache-Control: max-age=60} and an ETag are returned with HTTP 200.\label{fig:cache-b-headers}}
+\img{images/fig41_backend_b_cache_304.png}{Backend B cache validation using \texttt{If-None-Match}, resulting in HTTP 304 Not Modified.\label{fig:cache-b-304}}
+
+\statusbox{Task F verification}{The supplied Postman evidence directly demonstrates both the initial cached response and subsequent conditional validation. Backend A and Backend B return an ETag with \texttt{Cache-Control: max-age=60}; a subsequent request containing \texttt{If-None-Match} receives HTTP 304 Not Modified.}
+
+% ---------- Task G ----------
+\section{Task G -- Capture Complete Protocol Flow}
+
+\subsection{Required Wireshark Evidence}
+The supplied Phase 1 documentation specifies four protocol captures and their intended contents. The capture requirements are reproduced below without claiming evidence that is not present in the supplied document.
+
+\small\begin{longtable}{@{}L{0.14\textwidth}L{0.34\textwidth}L{0.31\textwidth}L{\dimexpr0.21\textwidth-6\tabcolsep\relax}@{}}
+\caption{Phase 1 Wireshark capture requirements}\label{tab:wireshark-requirements}\\
+\toprule
+\textbf{Part} & \textbf{What to show} & \textbf{Capture file} & \textbf{Filter}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Part} & \textbf{What to show} & \textbf{Capture file} & \textbf{Filter}\\
+\midrule
+\endhead
+DNS & A query for \texttt{app.cn.test} and response \texttt{10.211.55.6} & \nolinkurl{phase1_dns_query.pcapng} & \texttt{dns}\\
+TCP + TLS handshake & TCP handshake followed by ClientHello, ServerHello, Certificate, ChangeCipherSpec and encrypted application data & \nolinkurl{phase1_https_tpc_tls12.pcapng} & \texttt{tcp.port == 443} / \texttt{tls}\\
+HTTP headers & HTTP request and response headers & \nolinkurl{phase1_http_headers.pcapng} & \texttt{http}\\
+Load balancing & Repeated requests reaching Backend A and Backend B & \nolinkurl{phase1_nginx_backend_lb.pcapng} & backend TCP port filter\\
+\bottomrule
+\end{longtable}
+
+\img{images/fig31_wireshark_dns_query.png}{Wireshark DNS capture showing the A query for \texttt{app.cn.test} and the response \texttt{10.211.55.6}; display filter \texttt{dns}.\label{fig:w-dns}}
+
+\img{images/fig32_wireshark_tls_handshake_overview.png}{Wireshark TLS 1.2 capture showing ClientHello, ServerHello, Certificate, Server Key Exchange and subsequent encrypted traffic; display filter \texttt{tls}.\label{fig:w-tls-overview}}
+
+\img{images/fig33_wireshark_tls_handshake_details.png}{Detailed Wireshark view of the TLS 1.2 ServerHello, Certificate and Server Key Exchange records.\label{fig:w-tls-details}}
+
+\img{images/fig34_wireshark_tls_capture.png}{Additional Wireshark evidence for the HTTPS/TLS packet flow on TCP port 443.\label{fig:w-tls-additional}}
+
+\img{images/fig35_wireshark_http_request.png}{Wireshark HTTP capture showing the request to Backend A on TCP port 3001; display filter \texttt{tcp.port == 3001}.\label{fig:w-http-request}}
+
+\img{images/fig36_wireshark_http_response.png}{Wireshark HTTP response showing HTTP 200 OK, ETag, Cache-Control and the Backend A identifier.\label{fig:w-http-response}}
+
+\img{images/fig37_wireshark_load_balancing.png}{Wireshark load-balancing capture showing traffic to both Backend A on TCP 3001 and Backend B on TCP 3002; display filter \texttt{tcp.port == 3001 || tcp.port == 3002}.\label{fig:w-lb}}
+
+\img{images/fig46_wireshark_backend_a.png}{Additional packet-level evidence of traffic between the nginx edge and Backend A.\label{fig:w-backend-a}}
+
+\img{images/fig47_wireshark_backend_b.png}{Additional packet-level evidence of traffic between the nginx edge and Backend B.\label{fig:w-backend-b}}
+
+\img{images/fig48_wireshark_lb_additional.png}{Additional load-balancing capture evidence for repeated backend requests.\label{fig:w-lb-additional}}
+
+\statusbox{Task G verification}{The supplied screenshots and corresponding \texttt{.pcapng} capture files are included in the project package. The evidence demonstrates DNS resolution, TCP/TLS traffic, HTTP headers, and nginx forwarding to both backend ports.}
+
+\subsection{Port Identification}
+The Phase 1 documentation identifies the following relevant ports:
+\begin{itemize}
+  \item DNS: UDP 53
+  \item HTTPS: TCP 443
+  \item Backend A: TCP 3001
+  \item Backend B: TCP 3002
+  \item Client connections also use an ephemeral source port.
+\end{itemize}
+
+% ---------- Phase 1 Failure Demonstrations ----------
+\section{Phase 1 Required Failure Demonstrations}
+
+The Phase 1 requirements include deliberate failure demonstrations to verify that the
+individual networking layers remain distinguishable and that failures propagate through
+the architecture in a predictable manner. Each test below was performed as a controlled
+change to the working setup. The observations are based on the supplied terminal
+screenshots.
+
+\subsection{Wrong DNS Server Configured on a Client}
+
+The client resolver on \texttt{app02} was deliberately configured to use the incorrect
+DNS server address \texttt{10.211.55.99}. The resolver status shows this address as the
+configured DNS server. A subsequent lookup for \texttt{app.cn.test} returned
+\texttt{SERVFAIL}, while direct ICMP connectivity to the edge address
+\texttt{10.211.55.6} remained successful with 0\% packet loss.
+
+\img[0.78\textwidth]{images/fig49_failure_wrong_dns_server.png}{Wrong DNS server configured on the client: DNS lookup fails with \texttt{SERVFAIL}, while direct IP connectivity to the edge server remains available.\label{fig:failure-wrong-dns}}
+
+\statusbox{Observation}{The DNS lookup failed, but the client could still reach the edge server by its IP address. This demonstrates that DNS name resolution and IP-layer reachability are separate functions. A failure in DNS configuration does not, by itself, remove IP connectivity.}
+
+\subsection{DNS Record Points to a Wrong IP Address}
+
+The private \texttt{dnsmasq} record for \texttt{app.cn.test} was deliberately changed from
+the documented edge address \texttt{10.211.55.6} to \texttt{10.211.55.7}. The client
+then resolved \texttt{app.cn.test} to \texttt{10.211.55.7}. The HTTP request directed
+to the resulting backend address/port returned the Backend A response, and ping also
+identified the resolved address as \texttt{10.211.55.7}.
+
+\img[0.82\textwidth]{images/fig50_failure_wrong_dns_record_config.png}{Temporary \texttt{dnsmasq} configuration in which \texttt{app.cn.test} is deliberately mapped to the wrong IP address \texttt{10.211.55.7}.\label{fig:failure-wrong-dns-record-config}}
+
+\img[0.82\textwidth]{images/fig51_failure_wrong_dns_record_observation.png}{Observed result of the incorrect DNS record: \texttt{app.cn.test} resolves to \texttt{10.211.55.7} and the request reaches Backend A.\label{fig:failure-wrong-dns-record-observation}}
+
+\statusbox{Observation}{DNS resolution itself succeeded, but it returned the wrong destination. The client therefore followed the incorrect mapping and reached Backend A directly on TCP port 3001. This demonstrates that DNS supplies an address mapping; it does not establish the application connection or validate that the mapped address is the intended destination.}
+
+\subsection{One Backend Is Stopped}
+
+Backend A was stopped while the nginx edge and Backend B remained available. Before the
+failure, repeated requests showed responses from both backends. After Backend A was
+stopped, repeated requests to \texttt{https://app.cn.test/api/status} continued to
+return successful responses from Backend B.
+
+\img[0.82\textwidth]{images/fig52_failure_one_backend_stopped.png}{Repeated application requests before and after stopping one backend; after the failure, the remaining Backend B continues to serve successful responses.\label{fig:failure-one-backend}}
+
+\statusbox{Observation}{The edge continued to serve the application through the remaining backend. In the supplied test evidence, Backend B handled the requests after Backend A was stopped. This demonstrates backend failure isolation at the edge when the configured nginx behaviour permits the remaining upstream to continue serving requests.}
+
+\subsection{Both Backends Are Stopped}
+
+Both backend services were unavailable. DNS still resolved \texttt{app.cn.test} to the
+edge address \texttt{10.211.55.6}. Direct TCP connection attempts to
+\texttt{10.211.55.7:3001} and \texttt{10.211.55.8:3002} returned
+\texttt{Connection refused}. An HTTPS request to the edge then returned
+\texttt{HTTP/1.1 502 Bad Gateway} from nginx.
+
+\img[0.82\textwidth]{images/fig53_failure_both_backends_stopped.png}{Both backends unavailable: DNS still resolves to the edge, backend TCP ports refuse connections, and nginx returns HTTP 502 Bad Gateway for the application request.\label{fig:failure-both-backends}}
+
+\statusbox{Observation}{The edge layer remained reachable even though the application upstreams were unavailable. The 502 response identifies the failure boundary: DNS and the nginx edge can still operate, while the upstream application service cannot satisfy the request.}
+
+\subsection{Wrong Destination Port on the Client}
+
+The client deliberately attempted to connect to Backend A at the correct IP address
+\texttt{10.211.55.7} but used the incorrect destination port \texttt{3999} instead of
+the documented service port \texttt{3001}. Ping to the host succeeded, the connection
+to port 3999 failed, and a subsequent request to the correct port 3001 succeeded.
+
+\img[0.82\textwidth]{images/fig54_failure_wrong_destination_port.png}{Correct host reachability with an incorrect destination port: port 3999 fails, while the service on port 3001 responds successfully.\label{fig:failure-wrong-port}}
+
+\statusbox{Observation}{The host was reachable at the IP layer, but the TCP connection to the incorrect service port failed. The same host accepted the request on its actual service port 3001. This demonstrates that an IP address identifies the host/interface while the destination port identifies the transport-layer service endpoint.}
+
+\subsection{Failure Demonstration Summary}
+
+\begin{table}[H]
+\centering
+\caption{Phase 1 controlled failure demonstrations}\label{tab:failure-demonstrations}
+\begin{tabularx}{\textwidth}{@{}L{0.22\textwidth}L{0.25\textwidth}>{\RaggedRight\arraybackslash}X@{}}
+\toprule
+\textbf{Failure scenario} & \textbf{Observed result} & \textbf{Networking concept demonstrated}\\
+\midrule
+Wrong DNS server & \texttt{SERVFAIL}; direct IP ping still succeeds & DNS resolution is independent of IP-layer connectivity.\\
+Wrong DNS record & Name resolves to \texttt{10.211.55.7} and reaches Backend A & DNS provides an address mapping; an incorrect mapping directs traffic to the wrong destination.\\
+One backend stopped & Remaining Backend B continues serving requests & The edge can continue service through the remaining upstream under the configured failover behaviour.\\
+Both backends stopped & DNS/edge remain reachable; nginx returns \texttt{502 Bad Gateway} & The application failure occurs at the upstream/backend boundary.\\
+Wrong destination port & Host is reachable; port 3999 fails; port 3001 succeeds & IP addressing and TCP service ports identify different layers of the connection.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\statusbox{Failure-test evidence status}{All five required failure scenarios have supplied screenshot evidence. The observations above are written from the captured results rather than from the expected result alone.}
+
+% ---------- Integrated flow ----------
+\section{End-to-End Phase 1 Flow}
+The completed architecture is intended to operate as the following logical sequence:
+
+\begin{enumerate}
+  \item A client requests the private application name \texttt{app.cn.test}.
+  \item The private DNS service resolves the name to the edge server address \texttt{10.211.55.6}.
+  \item The client establishes a connection to the nginx edge server.
+  \item For HTTPS, nginx presents the locally signed certificate for \texttt{app.cn.test}.
+  \item Nginx forwards the application request to Backend A (port 3001) or Backend B (port 3002).
+  \item The selected backend returns the application response, including the documented backend identifier.
+  \item Cache-related headers provide representation freshness and validation information.
+  \item Wireshark captures are used to demonstrate the DNS, TCP/TLS, HTTP and backend traffic at packet level.
+\end{enumerate}
+
+\begin{tcolorbox}[colback=lightblue,colframe=navy,boxrule=0.5pt]
+\centering
+\textbf{Client}\ $\rightarrow$ \textbf{Private DNS}\ $\rightarrow$ \textbf{nginx Edge}\ $\rightarrow$ \textbf{Backend A / Backend B}
+\end{tcolorbox}
+
+% ---------- Verification matrix ----------
+\clearpage
+\section{Phase 1 Verification Matrix}
+\small\begin{longtable}{L{0.07\textwidth}L{0.27\textwidth}L{0.42\textwidth}L{0.10\textwidth}}
+\caption{Requirement and evidence verification matrix}\label{tab:verification-matrix}\\
+\toprule
+\textbf{Task} & \textbf{Requirement} & \textbf{Evidence present in supplied document} & \textbf{Status}\\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Task} & \textbf{Requirement} & \textbf{Evidence present in supplied document} & \textbf{Status}\\
+\midrule
+\endhead
+A & Private LAN and VM reachability & Address table, topology and ping screenshots & Complete\\
+B & Private DNS & dnsmasq configuration, DNS records, dig/nslookup verification and resolver explanation & Complete\\
+C & Backend A/B services & Configuration tables, endpoint behaviour and Python code screenshots & Complete\\
+D & Reverse proxy/load balancing & nginx configuration and round-robin verification & Complete\\
+E & HTTPS/TLS & CA, CSR, SAN, signing, certificate verification, nginx HTTPS, trust-store installation, TLS packet evidence and successful HTTPS requests & Complete\\
+F & HTTP caching & ETag/Cache-Control implementation plus HTTP 200, ETag, If-None-Match and 304 validation evidence for Backend A and B & Complete\\
+G & Wireshark protocol flow & DNS, TCP/TLS, HTTP headers and load-balancing screenshots plus corresponding \texttt{.pcapng} files & Complete\\
+10 & Required failure demonstrations & Five controlled failure scenarios with screenshots and observed explanations & Complete\\
+\bottomrule
+\end{longtable}
+
+\section{Final Submission Checklist}
+The Phase 1 evidence package has been integrated and checked against the requirements documented in the supplied project documentation:
+\begin{enumerate}
+  \item Private LAN addressing and VM roles are documented and supported by connectivity evidence.
+  \item Private DNS records for \texttt{app.cn.test} and \texttt{api.cn.test} are documented and verified using \texttt{dig} and \texttt{nslookup}.
+  \item Backend A and Backend B configuration, endpoints and Python implementations are documented.
+  \item nginx reverse-proxy configuration and round-robin behaviour are documented and evidenced.
+  \item Local CA creation, server key/CSR, SAN, certificate signing, verification, nginx HTTPS configuration and CA trust installation are documented.
+  \item Successful HTTPS access through \texttt{https://app.cn.test/api/status} is evidenced.
+  \item ETag and \texttt{Cache-Control: max-age=60} are evidenced for Backend A and Backend B.
+  \item Conditional cache validation using \texttt{If-None-Match} and HTTP 304 Not Modified is evidenced.
+  \item Task G DNS, TCP/TLS, HTTP-header and load-balancing Wireshark screenshots are included.
+  \item The corresponding Wireshark \texttt{.pcapng} files are included under \texttt{phase-1/evidence/wireshark/}.
+  \item The five required failure demonstrations in Section 10 are documented with supplied screenshots and observed results.
+  \item Cover-page student, roll-number and institution fields should be completed before submission.
+\end{enumerate}
+
+\statusbox{Submission readiness}{The supplied Phase 1 implementation and evidence package covers Tasks A--G and the five required failure demonstrations. The remaining manual item is completion of the student/institution details on the cover page.}
+
+\section{Conclusion}
+Phase 1 establishes the documented private networking and application stack: a four-VM private LAN, private DNS, two Python backend services, nginx reverse proxy/load balancing, local-CA HTTPS/TLS, HTTP caching support, and packet-level protocol analysis. The supplied evidence package provides configuration and functional evidence for Tasks A--G, including DNS resolution, TLS 1.2 packet exchange, HTTP headers, nginx backend selection, ETag/cache validation, and successful HTTPS application requests. The final project package preserves the original Wireshark capture files as supplementary evidence.
+
+\appendix
+\section{Evidence Files Included}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{File} & \textbf{Purpose}\\
+\midrule
+\texttt{phase1\_dns\_query.pcapng} & DNS A query and response capture.\\
+\texttt{phase1\_https\_tcp\_tls.pcapng} & HTTPS/TLS packet capture.\\
+\texttt{phase1\_https\_tpc\_tls12.pcapng} & TLS 1.2 packet capture used for handshake evidence.\\
+\texttt{phase1\_http\_headers.pcapng} & HTTP request/response header capture.\\
+\texttt{phase1\_nginx\_backend\_lb.pcapng} & nginx backend load-balancing capture.\\
+\bottomrule
+\end{tabularx}
+
+\section{Evidence Image Naming}
+All incorporated screenshots use descriptive \texttt{figNN\_...} filenames in the \texttt{phase-1/evidence/images/} directory. The original capture filenames are retained in the \texttt{phase-1/evidence/wireshark/} directory so that the report and supplementary packet evidence remain traceable.
+\end{document}
