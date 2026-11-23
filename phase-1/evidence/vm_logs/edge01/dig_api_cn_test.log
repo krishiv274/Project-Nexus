@@ -1,0 +1,20 @@
+edge01@edge01:~$ dig api.cn.test
+
+; <<>> DiG 9.20.24-1ubuntu0.3-Ubuntu <<>> api.cn.test
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 8421
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;api.cn.test.			IN	A
+
+;; ANSWER SECTION:
+api.cn.test.		0	IN	A	10.211.55.6
+
+;; Query time: 1 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Thu Sep 24 15:58:30 IST 2026
+;; MSG SIZE  rcvd: 56

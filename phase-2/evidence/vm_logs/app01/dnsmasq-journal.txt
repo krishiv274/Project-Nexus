@@ -1,0 +1,500 @@
+Nov 23 00:58:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 00:58:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 00:58:34 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:34 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:34 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:34 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 00:58:34 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 00:58:34 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:34 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:34 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:56 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 00:58:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 00:58:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:58 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:58 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:58 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:58:58 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:58:58 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:58:58 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:02 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:02 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:02 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:02 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:02 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:02 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:06 app01 dnsmasq[15139]: query[PTR] 8.55.211.10.in-addr.arpa from 10.211.55.8
+Nov 23 00:59:06 app01 dnsmasq[15139]: config 10.211.55.8 is NXDOMAIN
+Nov 23 00:59:06 app01 dnsmasq[15139]: query[PTR] d.e.c.5.d.9.e.f.f.f.2.4.c.1.2.0.0.0.0.0.4.e.4.f.6.2.c.2.2.b.d.f.ip6.arpa from 10.211.55.8
+Nov 23 00:59:06 app01 dnsmasq[15139]: config fdb2:2c26:f4e4:0:21c:42ff:fe9d:5ced is NXDOMAIN
+Nov 23 00:59:10 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:10 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:10 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:10 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:10 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:10 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 00:59:10 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:15 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:15 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:15 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 00:59:15 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 00:59:15 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 00:59:15 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:00:17 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:00:17 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:00:17 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:00:17 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:00:17 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:00:17 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:00:17 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:00:52 app01 dnsmasq[15139]: query[A] app.cn.test from 10.211.55.8
+Nov 23 01:00:52 app01 dnsmasq[15139]: config app.cn.test is 10.211.55.6
+Nov 23 01:01:21 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:01:21 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:01:21 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:01:21 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:01:21 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:01:21 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:01:21 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:01:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:01:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:01:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:01:56 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:01:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:01:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:01:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:01:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:03:26 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:03:26 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:03:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:03:29 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:03:29 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:03:29 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:03:29 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:03:29 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:03:29 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:03:29 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:03:29 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:04:39 app01 dnsmasq[15139]: query[A] app.cn.test from 10.211.55.8
+Nov 23 01:04:39 app01 dnsmasq[15139]: config app.cn.test is 10.211.55.6
+Nov 23 01:04:39 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:04:39 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:04:41 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:04:41 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:04:44 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:04:44 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:04:46 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:04:46 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:05:30 app01 dnsmasq[15139]: query[A] api.snapcraft.io from 10.211.55.5
+Nov 23 01:05:30 app01 dnsmasq[15139]: forwarded api.snapcraft.io to 10.211.55.1
+Nov 23 01:05:30 app01 dnsmasq[15139]: query[AAAA] api.snapcraft.io from 10.211.55.5
+Nov 23 01:05:30 app01 dnsmasq[15139]: forwarded api.snapcraft.io to 10.211.55.1
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.107
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.109
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.105
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.110
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.106
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is 185.125.190.108
+Nov 23 01:05:30 app01 dnsmasq[15139]: reply api.snapcraft.io is NODATA-IPv6
+Nov 23 01:05:46 app01 dnsmasq[15139]: query[AAAA] api.snapcraft.io from 10.211.55.8
+Nov 23 01:05:46 app01 dnsmasq[15139]: forwarded api.snapcraft.io to 10.211.55.1
+Nov 23 01:05:46 app01 dnsmasq[15139]: query[A] api.snapcraft.io from 10.211.55.8
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.107
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.109
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.105
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.110
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.106
+Nov 23 01:05:46 app01 dnsmasq[15139]: cached api.snapcraft.io is 185.125.190.108
+Nov 23 01:05:46 app01 dnsmasq[15139]: reply api.snapcraft.io is NODATA-IPv6
+Nov 23 01:06:50 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:06:50 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:06:50 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:06:50 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:06:50 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:06:50 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:06:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:06:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:06:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:06:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:06:56 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:06:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:06:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:06:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:06:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:07:52 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:07:52 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:07:52 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:07:52 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:07:52 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:07:52 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:07:52 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:08:12 app01 dnsmasq[15139]: query[A] app.cn.test from 10.211.55.8
+Nov 23 01:08:12 app01 dnsmasq[15139]: config app.cn.test is 10.211.55.6
+Nov 23 01:08:26 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:08:26 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:08:26 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:08:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:08:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:08:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:08:56 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:08:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:08:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:08:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:08:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:09:14 app01 dnsmasq[15139]: query[A] app.cn.test from 10.211.55.8
+Nov 23 01:09:14 app01 dnsmasq[15139]: config app.cn.test is 10.211.55.6
+Nov 23 01:09:14 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:09:14 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:09:15 app01 dnsmasq[15139]: query[AAAA] app.cn.test from 10.211.55.8
+Nov 23 01:09:15 app01 dnsmasq[15139]: config app.cn.test is NODATA-IPv6
+Nov 23 01:11:04 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:11:04 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:11:04 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:11:04 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:04 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:11:04 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:11:04 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:11:50 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.8
+Nov 23 01:11:50 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:11:50 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:11:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:11:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:11:56 app01 dnsmasq[15139]: query[A] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.64
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.97
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.99
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.58
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.63
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.60
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.96
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.62
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.57
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.61
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.101
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 185.125.190.100
+Nov 23 01:11:56 app01 dnsmasq[15139]: cached connectivity-check.ubuntu.com is 91.189.91.59
+Nov 23 01:11:56 app01 dnsmasq[15139]: query[AAAA] connectivity-check.ubuntu.com from 10.211.55.5
+Nov 23 01:11:56 app01 dnsmasq[15139]: forwarded connectivity-check.ubuntu.com to 10.211.55.1
+Nov 23 01:11:56 app01 dnsmasq[15139]: reply connectivity-check.ubuntu.com is NODATA-IPv6
+Nov 23 01:12:36 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:12:36 app01 dnsmasq[15139]: exiting on receipt of SIGTERM
+Nov 23 01:12:36 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 01:12:36 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:17:35 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:17:35 app01 dnsmasq[68436]: started, version 2.92 cachesize 150
+Nov 23 01:17:35 app01 dnsmasq[68436]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 01:17:35 app01 dnsmasq[68436]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 01:17:35 app01 dnsmasq[68436]: using nameserver 10.211.55.1#53
+Nov 23 01:17:35 app01 dnsmasq[68436]: using only locally-known addresses for cn.test
+Nov 23 01:17:35 app01 dnsmasq[68436]: read /etc/hosts - 8 names
+Nov 23 01:17:35 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:17:35 app01 resolvconf[68448]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 01:17:35 app01 resolvconf[68448]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 01:25:50 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:25:50 app01 dnsmasq[68436]: exiting on receipt of SIGTERM
+Nov 23 01:25:50 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 01:25:50 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:25:50 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:25:50 app01 dnsmasq[69990]: started, version 2.92 cachesize 150
+Nov 23 01:25:50 app01 dnsmasq[69990]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 01:25:50 app01 dnsmasq[69990]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 01:25:50 app01 dnsmasq[69990]: using nameserver 10.211.55.1#53
+Nov 23 01:25:50 app01 dnsmasq[69990]: using only locally-known addresses for cn.test
+Nov 23 01:25:50 app01 dnsmasq[69990]: read /etc/hosts - 8 names
+Nov 23 01:25:50 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:25:50 app01 resolvconf[69998]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 01:25:50 app01 resolvconf[69998]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 01:26:30 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:26:30 app01 dnsmasq[69990]: exiting on receipt of SIGTERM
+Nov 23 01:26:30 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 01:26:30 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:26:31 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:26:31 app01 dnsmasq[70152]: started, version 2.92 cachesize 150
+Nov 23 01:26:31 app01 dnsmasq[70152]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 01:26:31 app01 dnsmasq[70152]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 01:26:31 app01 dnsmasq[70152]: using nameserver 10.211.55.1#53
+Nov 23 01:26:31 app01 dnsmasq[70152]: using only locally-known addresses for cn.test
+Nov 23 01:26:31 app01 dnsmasq[70152]: read /etc/hosts - 8 names
+Nov 23 01:26:31 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:26:31 app01 resolvconf[70160]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 01:26:31 app01 resolvconf[70160]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 01:27:38 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:27:38 app01 dnsmasq[70152]: exiting on receipt of SIGTERM
+Nov 23 01:27:38 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 01:27:38 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:27:38 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 01:27:38 app01 dnsmasq[70381]: started, version 2.92 cachesize 150
+Nov 23 01:27:38 app01 dnsmasq[70381]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 01:27:38 app01 dnsmasq[70381]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 01:27:38 app01 dnsmasq[70381]: using nameserver 10.211.55.1#53
+Nov 23 01:27:38 app01 dnsmasq[70381]: using only locally-known addresses for cn.test
+Nov 23 01:27:38 app01 dnsmasq[70381]: read /etc/hosts - 8 names
+Nov 23 01:27:38 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 01:27:38 app01 resolvconf[70389]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 01:27:38 app01 resolvconf[70389]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 02:58:33 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 02:58:33 app01 dnsmasq[70381]: exiting on receipt of SIGTERM
+Nov 23 02:58:33 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 02:58:33 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 02:58:33 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 02:58:33 app01 dnsmasq[86390]: started, version 2.92 cachesize 150
+Nov 23 02:58:33 app01 dnsmasq[86390]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 02:58:33 app01 dnsmasq[86390]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 02:58:33 app01 dnsmasq[86390]: using nameserver 10.211.55.1#53
+Nov 23 02:58:33 app01 dnsmasq[86390]: using only locally-known addresses for cn.test
+Nov 23 02:58:33 app01 dnsmasq[86390]: read /etc/hosts - 8 names
+Nov 23 02:58:33 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 02:58:33 app01 resolvconf[86398]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 02:58:33 app01 resolvconf[86398]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 03:10:41 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:10:41 app01 dnsmasq[86390]: exiting on receipt of SIGTERM
+Nov 23 03:10:41 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 03:10:41 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:10:41 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:10:41 app01 dnsmasq[88566]: started, version 2.92 cachesize 150
+Nov 23 03:10:41 app01 dnsmasq[88566]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 03:10:41 app01 dnsmasq[88566]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 03:10:41 app01 dnsmasq[88566]: using nameserver 10.211.55.1#53
+Nov 23 03:10:41 app01 dnsmasq[88566]: using only locally-known addresses for cn.test
+Nov 23 03:10:41 app01 dnsmasq[88566]: read /etc/hosts - 8 names
+Nov 23 03:10:41 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:10:41 app01 resolvconf[88574]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 03:10:41 app01 resolvconf[88574]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 03:16:11 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:16:11 app01 dnsmasq[88566]: exiting on receipt of SIGTERM
+Nov 23 03:16:11 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 03:16:11 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:16:11 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:16:11 app01 dnsmasq[89503]: started, version 2.92 cachesize 150
+Nov 23 03:16:11 app01 dnsmasq[89503]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 03:16:11 app01 dnsmasq[89503]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 03:16:11 app01 dnsmasq[89503]: using nameserver 10.211.55.1#53
+Nov 23 03:16:11 app01 dnsmasq[89503]: using only locally-known addresses for cn.test
+Nov 23 03:16:11 app01 dnsmasq[89503]: read /etc/hosts - 8 names
+Nov 23 03:16:11 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:16:11 app01 resolvconf[89511]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 03:16:11 app01 resolvconf[89511]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 03:38:30 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:38:30 app01 dnsmasq[89503]: exiting on receipt of SIGTERM
+Nov 23 03:38:31 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 03:38:31 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:38:31 app01 systemd[1]: Starting dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:38:31 app01 dnsmasq[93328]: started, version 2.92 cachesize 150
+Nov 23 03:38:31 app01 dnsmasq[93328]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Nov 23 03:38:31 app01 dnsmasq[93328]: warning: ignoring resolv-file flag because no-resolv is set
+Nov 23 03:38:31 app01 dnsmasq[93328]: using nameserver 10.211.55.1#53
+Nov 23 03:38:31 app01 dnsmasq[93328]: using only locally-known addresses for cn.test
+Nov 23 03:38:31 app01 dnsmasq[93328]: read /etc/hosts - 8 names
+Nov 23 03:38:31 app01 systemd[1]: Started dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.
+Nov 23 03:38:31 app01 resolvconf[93336]: Dropped protocol specifier '.dnsmasq' from 'lo.dnsmasq'. Using 'lo' (ifindex=1).
+Nov 23 03:38:31 app01 resolvconf[93336]: Failed to set DNS configuration: Unit dbus-org.freedesktop.network1.service not found.
+Nov 23 03:47:28 app01 dnsmasq[93328]: query[A] app.cn.test from 10.211.55.8
+Nov 23 03:47:28 app01 dnsmasq[93328]: config app.cn.test is 10.211.55.6
+Nov 23 03:53:04 app01 systemd[1]: Stopping dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server...
+Nov 23 03:53:04 app01 dnsmasq[93328]: exiting on receipt of SIGTERM
+Nov 23 03:53:04 app01 systemd[1]: dnsmasq.service: Deactivated successfully.
+Nov 23 03:53:04 app01 systemd[1]: Stopped dnsmasq.service - dnsmasq - A lightweight DHCP and caching DNS server.

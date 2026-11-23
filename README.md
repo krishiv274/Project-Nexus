@@ -99,12 +99,12 @@ backends through the load balancer.
 ``` text
                          LOCAL MAC
                              │
-                     UTM / VM Hypervisor
+                Parallels Desktop (macOS host)
                              │
                     ┌────────┴────────┐
                     │  Private VM LAN │
-                    │  cn-private     │
-                    │  10.20.30.0/24  │
+                    │  Shared Network │
+                    │  10.211.55.0/24  │
                     └────────┬────────┘
                              │
         ┌────────────────────┼─────────────────────┐
@@ -162,35 +162,34 @@ The client should **not** need to know the backend IP addresses.
   VM3   `app01`    Backend A                              HTTP/REST on `3001`
   VM4   `app02`    Backend B + client                     HTTP/REST on `3002`, `curl`
 
-During Phase 2, one VM may temporarily take additional roles such as
-backup DNS or standby edge.
+In Phase 2, `app01` also runs the **backup DNS server ("dns02", :53)** and the
+**standby edge ("edge02", nginx :443, normally stopped)**, and `app02` is the main test
+client. See [architecture/ARCHITECTURE.md](architecture/ARCHITECTURE.md) for the full
+role, IP and service tables.
 
 ------------------------------------------------------------------------
 
 # 4. Network Plan
 
-The project plan uses an isolated private VM LAN.
+All four VMs are attached to the Parallels **Shared Network**. These are the deployed
+addresses, taken from the captured VM configuration (`ip addr`, `ip route`).
 
-### Planned network
+### Deployed network
 
 ``` text
-Network name: cn-private
-Subnet:       10.20.30.0/24
+Network:  Parallels Shared Network
+Subnet:   10.211.55.0/24
+Gateway:  10.211.55.1   (Mac host; also the upstream DNS resolver)
 ```
 
-### Planned addressing
+### Deployed addressing
 
-  Host            Planned IP Purpose
-  ---------- --------------- ------------------
-  `dns01`      `10.20.30.10` Private DNS
-  `edge01`     `10.20.30.20` nginx / TLS / LB
-  `app01`      `10.20.30.30` Backend A
-  `app02`      `10.20.30.40` Backend B
-
-> **Important:** these addresses are the addresses from our project
-> plan/example. Verify the actual addresses in the VM environment before
-> using them. Do not assume they are correct if the VMs were assigned
-> different addresses.
+  Host         IP              Interface   MAC                 Purpose
+  ---------- --------------- ----------- ------------------- ------------------------------------------
+  `dns01`      `10.211.55.5`   `enp0s5`    00:1c:42:33:e1:29   Private DNS (primary) + test client
+  `edge01`     `10.211.55.6`   `enp0s5`    00:1c:42:56:b5:e8   nginx / TLS / load balancer
+  `app01`      `10.211.55.7`   `enp0s5`    00:1c:42:8c:63:30   Backend A (+ dns02, edge02 in Phase 2)
+  `app02`      `10.211.55.8`   `enp0s5`    00:1c:42:9d:5c:ed   Backend B + main test client
 
 ### Service ports
 
@@ -209,38 +208,36 @@ If the environment cannot bind to ports 80/443, the course permits using
 
 # 5. Repository Structure
 
-The repository currently contains the final Phase 1 submission assets and supporting architecture files.
-
 ``` text
 Project-Nexus
 │
+├── README.md                 this file (build, run and demo guide)
+├── CONCEPTS.md               course topic explanations (OSI mapping, cloud equivalents, TCP, caching, HTTP/2/3, email)
 ├── architecture/
-│   └── topology.png
+│   ├── ARCHITECTURE.md       architecture document (Phase 1, updated for Phase 2)
+│   ├── topology.png          Phase 1 topology
+│   ├── phase2_topology.*     Phase 2 topology (png + pdf)
+│   ├── phase2_request_flow.* request flow per protocol layer (png + pdf)
+│   └── src/                  TikZ sources of the Phase 2 diagrams
 │
-├── backend-a/
-│   ├── app.py
-│   └── README.md
-│
-├── backend-b/
-│   ├── app.py
-│   └── README.md
+├── backend-a/                Backend A: app.py (:3001), README.md
+├── backend-b/                Backend B: app.py (:3002), README.md
 │
 ├── phase-1/
-│   ├── artifacts/
-│   │   ├── main.pdf
-│   │   └── main.tex
-│   │
+│   ├── artifacts/            Phase 1 report: main.tex, main.pdf
 │   └── evidence/
-│       ├── failures/
-│       ├── images/
-│       ├── vm_logs/
-│       └── wireshark/
+│       ├── images/           fig01–fig54 screenshots
+│       ├── failures/         the five required failure demonstrations
+│       ├── vm_logs/          configs and command output per VM
+│       └── wireshark/        DNS, TCP/TLS, HTTP headers, load-balancing pcaps
 │
-├── phase-2/
-│       └── .gitkeep
-│
-├── README.md
-└── .gitignore
+└── phase-2/
+    ├── artifacts/            Phase 2 final report (IEEE format): main.tex, main.pdf, figures/
+    └── evidence/
+        ├── images/           p2_fig01–p2_fig23 screenshots
+        ├── vm_logs/          Phase 2 configs, logs and firewall rules per VM
+        ├── wireshark/        Phase 2 pcaps (DNS failover, HA failover, isolation, edge cutover)
+        └── troubleshooting/  Extension F method and drill write-ups
 ```
 
 ------------------------------------------------------------------------
@@ -250,7 +247,7 @@ Project-Nexus
 ## Host machine
 
 -   macOS
--   UTM or another local VM hypervisor
+-   Parallels Desktop (any local VM hypervisor works)
 -   Four Ubuntu VMs
 -   No cloud infrastructure is required
 
@@ -327,17 +324,17 @@ MAC address
 From `dns01`:
 
 ``` bash
-ping -c 4 10.20.30.20
-ping -c 4 10.20.30.30
-ping -c 4 10.20.30.40
+ping -c 4 10.211.55.6
+ping -c 4 10.211.55.7
+ping -c 4 10.211.55.8
 ```
 
 From `edge01`:
 
 ``` bash
-ping -c 4 10.20.30.10
-ping -c 4 10.20.30.30
-ping -c 4 10.20.30.40
+ping -c 4 10.211.55.5
+ping -c 4 10.211.55.7
+ping -c 4 10.211.55.8
 ```
 
 Repeat as needed from the client VMs.
@@ -506,13 +503,13 @@ ip route
 From a client:
 
 ``` bash
-ping -c 4 10.20.30.10
+ping -c 4 10.211.55.5
 ```
 
 ## 9.4 Check edge reachability
 
 ``` bash
-ping -c 4 10.20.30.20
+ping -c 4 10.211.55.6
 ```
 
 ## 9.5 Check backend reachability
@@ -520,8 +517,8 @@ ping -c 4 10.20.30.20
 Before Phase 2 service isolation:
 
 ``` bash
-ping -c 4 10.20.30.30
-ping -c 4 10.20.30.40
+ping -c 4 10.211.55.7
+ping -c 4 10.211.55.8
 ```
 
 Remember:
@@ -560,7 +557,7 @@ api.cn.test
 From a client:
 
 ``` bash
-dig @10.20.30.10 app.cn.test
+dig @10.211.55.5 app.cn.test
 ```
 
 Expected result:
@@ -572,13 +569,13 @@ app.cn.test → EDGE_IP
 For the planned address:
 
 ``` text
-app.cn.test → 10.20.30.20
+app.cn.test → 10.211.55.6
 ```
 
 ## 10.2 Query the API hostname
 
 ``` bash
-dig @10.20.30.10 api.cn.test
+dig @10.211.55.5 api.cn.test
 ```
 
 Expected:
@@ -590,13 +587,13 @@ api.cn.test → EDGE_IP
 ## 10.3 Short output
 
 ``` bash
-dig +short @10.20.30.10 app.cn.test
+dig +short @10.211.55.5 app.cn.test
 ```
 
 ## 10.4 nslookup alternative
 
 ``` bash
-nslookup app.cn.test 10.20.30.10
+nslookup app.cn.test 10.211.55.5
 ```
 
 ## 10.5 Verify the configured resolver
@@ -644,13 +641,13 @@ and:
 Test from a permitted client:
 
 ``` bash
-curl -i http://10.20.30.30:3001/
+curl -i http://10.211.55.7:3001/
 ```
 
 and:
 
 ``` bash
-curl -i http://10.20.30.30:3001/api/status
+curl -i http://10.211.55.7:3001/api/status
 ```
 
 ------------------------------------------------------------------------
@@ -679,13 +676,13 @@ and:
 Test:
 
 ``` bash
-curl -i http://10.20.30.40:3002/
+curl -i http://10.211.55.8:3002/
 ```
 
 and:
 
 ``` bash
-curl -i http://10.20.30.40:3002/api/status
+curl -i http://10.211.55.8:3002/api/status
 ```
 
 ------------------------------------------------------------------------
@@ -1177,7 +1174,7 @@ sudo systemctl status dnsmasq
 Then:
 
 ``` bash
-dig @10.20.30.10 app.cn.test
+dig @10.211.55.5 app.cn.test
 ```
 
 ------------------------------------------------------------------------
@@ -1204,7 +1201,7 @@ Restart the Backend A process on `app01`.
 Verify:
 
 ``` bash
-curl -i http://10.20.30.30:3001/api/status
+curl -i http://10.211.55.7:3001/api/status
 ```
 
 ------------------------------------------------------------------------
@@ -1216,7 +1213,7 @@ Restart the Backend B process on `app02`.
 Verify:
 
 ``` bash
-curl -i http://10.20.30.40:3002/api/status
+curl -i http://10.211.55.8:3002/api/status
 ```
 
 ------------------------------------------------------------------------
@@ -1224,6 +1221,25 @@ curl -i http://10.20.30.40:3002/api/status
 # 19. Phase 2 Resilience
 
 Phase 2 extends the existing network. **Do not rebuild Phase 1.**
+
+**Status: all Extensions A–E implemented and demonstrated; Extension F method prepared.**
+
+| Where | What |
+|---|---|
+| [phase-2/artifacts/main.pdf](phase-2/artifacts/main.pdf) | Phase 2 final report (IEEE): changes, test results, troubleshooting, learning summary |
+| [architecture/ARCHITECTURE.md](architecture/ARCHITECTURE.md) | Phase 2 topology, roles, request flow, remaining single points of failure |
+| [phase-2/evidence/](phase-2/evidence/) | screenshots, pcaps, configs and logs for every extension |
+| [phase-2/evidence/troubleshooting/](phase-2/evidence/troubleshooting/) | layer-by-layer method and drills (Extension F) |
+
+| Extension | Implementation | Evidence |
+|---|---|---|
+| A Backup DNS | dnsmasq on app01 (`10.211.55.7`), same records; clients use `.5` then `.7` | `p2_fig03`–`p2_fig07`, `phase2_dns_failover.pcapng` |
+| B DNS TTL | `local-ttl=30`, record changed `.6` → `.7` and back | `p2_fig01`–`p2_fig02`, `p2_fig08`–`p2_fig10` |
+| C Isolation | iptables on app01/app02: only loopback and the edge(s) reach 3001/3002 | `p2_fig15`–`p2_fig18`, `p2_fig23`, `vm_logs/app0*/iptables-*.rules` |
+| D Failover | nginx `max_fails=1 fail_timeout=10s`, 2 s connect timeout, retry next upstream | `p2_fig11`–`p2_fig14`, `vm_logs/edge01/cn_*.log` |
+| E Edge migration | standby nginx "edge02" on app01, DNS cutover with TTL 30 | `p2_fig19`–`p2_fig22`, `vm_logs/app01/edge02_*` |
+
+The sections below summarise each procedure; the report has the full details.
 
 The required resilience work includes:
 
@@ -1242,7 +1258,8 @@ Architecture:
                  Client
                 /      \
                /        \
-          dns01          dns02
+          dns01          dns02 (on app01)
+     10.211.55.5          10.211.55.7
          Primary         Backup
 ```
 
@@ -1322,7 +1339,7 @@ Restart Backend A and verify that load balancing resumes.
 
 ## Edge migration
 
-Create a standby nginx edge using another VM temporarily.
+Create a standby nginx edge on another VM (we used `app01` as "edge02", `10.211.55.7`).
 
 Then change:
 
@@ -1428,13 +1445,13 @@ backend application
 Example:
 
 ``` bash
-curl http://10.20.30.30:9999
+curl http://10.211.55.7:9999
 ```
 
 instead of:
 
 ``` bash
-curl http://10.20.30.30:3001
+curl http://10.211.55.7:3001
 ```
 
 A reachable host does not mean that a particular service port is open.
@@ -1702,39 +1719,21 @@ HTTP response
 
 # 23. Evidence Organization
 
-Keep evidence organized so a required item can be found quickly.
+Evidence is organised per course phase so any required item can be found quickly:
 
-``` text
-evidence/
-│
-├── phase1/
-│   ├── 01-lan/
-│   ├── 02-dns/
-│   ├── 03-backends/
-│   ├── 04-nginx/
-│   ├── 05-tls/
-│   ├── 06-caching/
-│   ├── 07-wireshark/
-│   └── 08-load-balancing/
-│
-└── phase2/
-    ├── 01-backup-dns/
-    ├── 02-dns-ttl/
-    ├── 03-firewall/
-    ├── 04-backend-failover/
-    ├── 05-edge-migration/
-    └── 06-troubleshooting/
-```
-
-Recommended packet captures:
-
-``` text
-captures/
-├── dns.pcapng
-├── tcp-handshake.pcapng
-├── tls-handshake.pcapng
-└── full-request.pcapng
-```
+| Course requirement | Location |
+|---|---|
+| Topology, roles, IP/service table, request flow | `architecture/` |
+| DNS resolution (dig / nslookup) | `phase-1/evidence/vm_logs/*/dig_*`, `nslookup_*`; `images/fig07`–`fig13` |
+| curl / headers / load balancing | `phase-1/evidence/vm_logs/edge01/`; `images/fig16`–`fig17`, `fig26`–`fig29` |
+| Wireshark: DNS, TCP handshake, TLS handshake, HTTP, LB | `phase-1/evidence/wireshark/*.pcapng`; `images/fig31`–`fig37`, `fig44`–`fig48` |
+| HTTP caching (Cache-Control, ETag, 304) | `phase-1/evidence/images/fig38`–`fig41` |
+| Phase 1 failure demonstrations | `phase-1/evidence/failures/`; `images/fig49`–`fig54` |
+| Configuration bundle | `phase-1/evidence/vm_logs/` (Phase 1), `phase-2/evidence/vm_logs/` (Phase 2, incl. firewall rules) |
+| TLS certificate setup notes | Phase 1 report, Task E; section 13 of this README |
+| Backend source + launch | `backend-a/`, `backend-b/`; section 8 of this README |
+| Phase 2 extensions A–F | `phase-2/evidence/` (see section 19) |
+| Reports | `phase-1/artifacts/main.pdf`, `phase-2/artifacts/main.pdf` |
 
 The course deliverables also include the architecture document,
 configuration bundle, backend source code, evidence folder, Phase 2
@@ -1863,13 +1862,13 @@ https://app.cn.test
 Not:
 
 ``` text
-https://10.20.30.20
+https://10.211.55.6
 ```
 
 and normally not:
 
 ``` text
-http://10.20.30.30:3001
+http://10.211.55.7:3001
 ```
 
 for the final user-facing service.
@@ -1925,20 +1924,20 @@ sudo ss -lntup
 ## DNS
 
 ``` bash
-dig @10.20.30.10 app.cn.test
-dig +short @10.20.30.10 app.cn.test
+dig @10.211.55.5 app.cn.test
+dig +short @10.211.55.5 app.cn.test
 ```
 
 ## Backend A
 
 ``` bash
-curl -i http://10.20.30.30:3001/api/status
+curl -i http://10.211.55.7:3001/api/status
 ```
 
 ## Backend B
 
 ``` bash
-curl -i http://10.20.30.40:3002/api/status
+curl -i http://10.211.55.8:3002/api/status
 ```
 
 ## HTTPS
@@ -1990,7 +1989,8 @@ Update this section as the build progresses.
 [✔] Phase 4 — HTTPS + caching + packet evidence
 [✔] Phase 5 — Phase 2 resilience
 [✔] Phase 6 — Failure injection + troubleshooting
-[✔] Phase 7 — Final demonstration + documentation
+[✔] Phase 7a — Documentation (reports, architecture, evidence)
+[ ] Phase 7b — Final live demonstration + viva (at the evaluation)
 ```
 
 ------------------------------------------------------------------------

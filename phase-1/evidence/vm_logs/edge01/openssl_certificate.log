@@ -1,0 +1,164 @@
+# 1. CREATE THE NGINX CERTIFICATE DIRECTORY
+
+edge01@edge01:~$ sudo mkdir -p /etc/nginx/cn-certs
+[sudo: authenticate] Password:         
+
+edge01@edge01:~$ sudo ls -ld /etc/nginx/cn-certs
+drwxr-xr-x 2 root root 4096 Sep 28 01:00 /etc/nginx/cn-certs
+
+# 2. CREATE THE LOCAL CERTIFICATE AUTHORITY KEY
+
+edge01@edge01:~$ sudo openssl genrsa -out /etc/nginx/cn-certs/cn-ca.key 4096
+
+edge01@edge01:~$ sudo ls -l /etc/nginx/cn-certs/cn-ca.key
+-rw------- 1 root root 3272 Sep 28 01:02 /etc/nginx/cn-certs/cn-ca.key
+
+# 3. CREATE THE SELF-SIGNED LOCAL CA CERTIFICATE
+
+edge01@edge01:~$ sudo openssl req -x509 -new -nodes \
+  -key /etc/nginx/cn-certs/cn-ca.key \
+  -sha256 -days 3650 \
+  -out /etc/nginx/cn-certs/cn-ca.crt \
+  -subj "/C=IN/ST=Haryana/L=Sonipat/O=CN Project/OU=Computer Networks/CN=CN Project Local CA"
+
+edge01@edge01:~$ sudo openssl x509 -in /etc/nginx/cn-certs/cn-ca.crt -noout -subject -issuer -dates
+subject=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=CN Project Local CA
+issuer=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=CN Project Local CA
+notBefore=Sep 27 19:33:31 2026 GMT
+notAfter=Sep 24 19:33:31 2036 GMT
+
+# 4. CREATE THE APPLICATION SERVER PRIVATE KEY
+
+edge01@edge01:~$ sudo openssl genrsa -out /etc/nginx/cn-certs/app.cn.test.key 2048
+
+edge01@edge01:~$ sudo ls -l /etc/nginx/cn-certs/app.cn.test.key
+-rw------- 1 root root 1704 Sep 28 01:05 /etc/nginx/cn-certs/app.cn.test.key
+
+# 5. CREATE AND VERIFY THE CERTIFICATE SIGNING REQUEST
+
+edge01@edge01:~$ sudo openssl req -new \
+  -key /etc/nginx/cn-certs/app.cn.test.key \
+  -out /etc/nginx/cn-certs/app.cn.test.csr \
+  -subj "/C=IN/ST=Haryana/L=Sonipat/O=CN Project/OU=Computer Networks/CN=app.cn.test"
+
+edge01@edge01:~$ sudo openssl req -in /etc/nginx/cn-certs/app.cn.test.csr -noout -subject
+subject=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=app.cn.test
+
+# 6. DEFINE THE SERVER CERTIFICATE EXTENSIONS
+
+edge01@edge01:~$ sudo nano /etc/nginx/cn-certs/app.cn.test.ext
+
+edge01@edge01:~$ sudo cat /etc/nginx/cn-certs/app.cn.test.ext
+authorityKeyIdentifier=keyid,issuer
+basicConstraints=CA:FALSE
+keyUsage=digitalSignature,keyEncipherment
+extendedKeyUsage=serverAuth
+subjectAltName=DNS:app.cn.test
+
+# 7. SIGN THE SERVER CERTIFICATE WITH THE LOCAL CA
+
+edge01@edge01:~$ sudo openssl x509 -req \
+  -in /etc/nginx/cn-certs/app.cn.test.csr \
+  -CA /etc/nginx/cn-certs/cn-ca.crt \
+  -CAkey /etc/nginx/cn-certs/cn-ca.key \
+  -CAcreateserial \
+  -out /etc/nginx/cn-certs/app.cn.test.crt \
+  -days 825 \
+  -sha256 \
+  -extfile /etc/nginx/cn-certs/app.cn.test.ext
+Certificate request self-signature ok
+subject=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=app.cn.test
+
+edge01@edge01:~$ sudo openssl x509 \
+  -in /etc/nginx/cn-certs/app.cn.test.crt \
+  -noout -subject -issuer -dates -ext subjectAltName
+subject=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=app.cn.test
+issuer=C=IN, ST=Haryana, L=Sonipat, O=CN Project, OU=Computer Networks, CN=CN Project Local CA
+notBefore=Sep 27 19:38:18 2026 GMT
+notAfter=Dec 30 19:38:18 2028 GMT
+X509v3 Subject Alternative Name: 
+    DNS:app.cn.test
+
+# 8. SET CERTIFICATE FILE PERMISSIONS AND VERIFY THE FILES
+
+edge01@edge01:~$ sudo chmod 600 /etc/nginx/cn-certs/*.key
+
+edge01@edge01:~$ sudo chmod 644 /etc/nginx/cn-certs/*.crt
+
+edge01@edge01:~$ sudo ls -l /etc/nginx/cn-certs/
+total 28
+-rw-r--r-- 1 root root 1818 Sep 28 01:08 app.cn.test.crt
+-rw-r--r-- 1 root root 1025 Sep 28 01:05 app.cn.test.csr
+-rw-r--r-- 1 root root  163 Sep 28 01:07 app.cn.test.ext
+-rw------- 1 root root 1704 Sep 28 01:05 app.cn.test.key
+-rw-r--r-- 1 root root 2102 Sep 28 01:03 cn-ca.crt
+-rw------- 1 root root 3272 Sep 28 01:02 cn-ca.key
+-rw-r--r-- 1 root root   41 Sep 28 01:08 cn-ca.srl
+
+# 9. CONFIGURE AND VALIDATE NGINX
+
+edge01@edge01:~$ sudo nano /etc/nginx/sites-available/cn-project
+
+edge01@edge01:~$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+edge01@edge01:~$ sudo systemctl reload nginx
+
+edge01@edge01:~$ sudo systemctl status nginx --no-pager
+● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-09-27 23:50:48 IST; 1h 21min ago
+ Invocation: feafdbb965f647148d4adacb9a474b1b
+       Docs: man:nginx(8)
+    Process: 31749 ExecReload=/usr/sbin/nginx -g daemon on; master_process on; -s reload (code=exited, status=0/SUCCESS)
+   Main PID: 1589 (nginx)
+      Tasks: 3 (limit: 951)
+     Memory: 5.8M (peak: 7.8M, swap: 908K, swap peak: 2.1M)
+        CPU: 147ms
+     CGroup: /system.slice/nginx.service
+             ├─ 1589 "nginx: master process /usr/sbin/nginx -g daemon on; master_process on;"
+             ├─31752 "nginx: worker process"
+             └─31753 "nginx: worker process"
+
+Sep 27 23:50:47 edge01 systemd[1]: Starting nginx.service - A high performance web server and a reve…rver...
+Sep 27 23:50:48 edge01 systemd[1]: Started nginx.service - A high performance web server and a rever…server.
+Sep 28 01:12:09 edge01 systemd[1]: Reloading nginx.service - A high performance web server and a rev…rver...
+Sep 28 01:12:09 edge01 nginx[31749]: 2026/09/28 01:12:09 [notice] 31749#31749: signal process started
+Sep 28 01:12:09 edge01 systemd[1]: Reloaded nginx.service - A high performance web server and a reve…server.
+Hint: Some lines were ellipsized, use -l to show in full.
+edge01@edge01:~$ 
+
+# 10. TEST HTTPS CERTIFICATE VERIFICATION
+
+edge01@edge01:~$ curl -I https://app.cn.test/api/status
+curl: (60) SSL certificate OpenSSL verify result: unable to get local issuer certificate (20)
+More details here: https://curl.se/docs/sslcerts.html
+
+curl failed to verify the legitimacy of the server and therefore could not
+establish a secure connection to it. To learn more about this situation and
+how to fix it, please visit the webpage mentioned above.
+
+# 11. INSTALL THE LOCAL CA INTO THE SYSTEM TRUST STORE
+
+edge01@edge01:~$ sudo cp /etc/nginx/cn-certs/cn-ca.crt /usr/local/share/ca-certificates/cn-project-local-ca.crt
+[sudo: authenticate] Password:         
+
+edge01@edge01:~$ sudo update-ca-certificates
+Updating certificates in /etc/ssl/certs...
+rehash: warning: skipping ca-certificates.crt, it does not contain exactly one certificate or CRL
+1 added, 0 removed; done.
+Running hooks in /etc/ca-certificates/update.d...
+done.
+
+# 12. TEST HTTPS CERTIFICATE VERIFICATION USING CURL
+
+edge01@edge01:~$ curl -i https://app.cn.test/api/status
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Sun, 27 Sep 2026 19:45:41 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: keep-alive
+X-Backend: A 
+{"backend": "A", "status": "ok"}
