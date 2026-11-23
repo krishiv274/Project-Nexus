@@ -1,0 +1,53 @@
+# CN Project - edge02 (STANDBY EDGE on app01) - Phase 2
+
+log_format cn_upstream '$remote_addr [$time_local] "$request" $status '
+                       'upstream=$upstream_addr ustatus=$upstream_status '
+                       'urt=$upstream_response_time rt=$request_time';
+
+upstream cn_backends {
+    server 10.211.55.7:3001 max_fails=1 fail_timeout=10s;
+    server 10.211.55.8:3002 max_fails=1 fail_timeout=10s;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name app.cn.test;
+
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name app.cn.test;
+
+    ssl_certificate /etc/nginx/cn-certs/app.cn.test.crt;
+    ssl_certificate_key /etc/nginx/cn-certs/app.cn.test.key;
+
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    access_log /var/log/nginx/cn_access.log cn_upstream;
+    error_log  /var/log/nginx/cn_error.log warn;
+
+    add_header X-Edge edge02 always;
+    add_header X-Upstream $upstream_addr always;
+
+    location / {
+        proxy_pass http://cn_backends;
+
+        proxy_connect_timeout 2s;
+        proxy_read_timeout 5s;
+
+        proxy_next_upstream error timeout http_502 http_503 http_504;
+        proxy_next_upstream_tries 2;
+        proxy_next_upstream_timeout 5s;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}

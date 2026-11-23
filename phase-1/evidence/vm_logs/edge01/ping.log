@@ -1,0 +1,33 @@
+dge01@edge01:~$ ip -br addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s5           UP             10.211.55.6/24 fdb2:2c26:f4e4:0:21c:42ff:fe56:b5e8/64 fe80::21c:42ff:fe56:b5e8/64 
+edge01@edge01:~$ ping -c 4 10.211.55.5
+PING 10.211.55.5 (10.211.55.5) 56(84) bytes of data.
+64 bytes from 10.211.55.5: icmp_seq=1 ttl=64 time=3.02 ms
+64 bytes from 10.211.55.5: icmp_seq=2 ttl=64 time=0.837 ms
+64 bytes from 10.211.55.5: icmp_seq=3 ttl=64 time=1.26 ms
+64 bytes from 10.211.55.5: icmp_seq=4 ttl=64 time=0.900 ms
+
+--- 10.211.55.5 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3019ms
+rtt min/avg/max/mdev = 0.837/1.503/3.016/0.888 ms
+edge01@edge01:~$ ping -c 4 10.211.55.7
+PING 10.211.55.7 (10.211.55.7) 56(84) bytes of data.
+64 bytes from 10.211.55.7: icmp_seq=1 ttl=64 time=7.43 ms
+64 bytes from 10.211.55.7: icmp_seq=2 ttl=64 time=0.941 ms
+64 bytes from 10.211.55.7: icmp_seq=3 ttl=64 time=0.922 ms
+64 bytes from 10.211.55.7: icmp_seq=4 ttl=64 time=0.989 ms
+
+--- 10.211.55.7 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 0.922/2.570/7.430/2.805 ms
+edge01@edge01:~$ ping -c 4 10.211.55.8
+PING 10.211.55.8 (10.211.55.8) 56(84) bytes of data.
+64 bytes from 10.211.55.8: icmp_seq=1 ttl=64 time=5.37 ms
+64 bytes from 10.211.55.8: icmp_seq=2 ttl=64 time=0.875 ms
+64 bytes from 10.211.55.8: icmp_seq=3 ttl=64 time=0.933 ms
+64 bytes from 10.211.55.8: icmp_seq=4 ttl=64 time=0.605 ms
+
+--- 10.211.55.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3041ms
+rtt min/avg/max/mdev = 0.605/1.946/5.371/1.981 ms

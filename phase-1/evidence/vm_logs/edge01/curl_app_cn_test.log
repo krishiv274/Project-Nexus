@@ -1,0 +1,51 @@
+edge01@edge01:~$ curl -v https://app.cn.test
+* Host app.cn.test:443 was resolved.
+* IPv6: (none)
+* IPv4: 10.211.55.6
+*   Trying 10.211.55.6:443...
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* SSL Trust Anchors:
+*   CAfile: /etc/ssl/certs/ca-certificates.crt
+*   CApath: /etc/ssl/certs
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / X25519MLKEM768 / RSASSA-PSS
+* ALPN: server accepted http/1.1
+* Server certificate:
+*   subject: C=IN; ST=Haryana; L=Sonipat; O=CN Project; OU=Computer Networks; CN=app.cn.test
+*   start date: Sep 27 19:38:18 2026 GMT
+*   expire date: Dec 30 19:38:18 2028 GMT
+*   issuer: C=IN; ST=Haryana; L=Sonipat; O=CN Project; OU=Computer Networks; CN=CN Project Local CA
+*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 1: Public key type RSA (4096/152 Bits/secBits), signed using sha256WithRSAEncryption
+*   subjectAltName: "app.cn.test" matches cert's "app.cn.test"
+* SSL certificate verified via OpenSSL.
+* Established connection to app.cn.test (10.211.55.6 port 443) from 10.211.55.6 port 46848 
+* using HTTP/1.x
+> GET / HTTP/1.1
+> Host: app.cn.test
+> User-Agent: curl/8.18.0
+> Accept: */*
+> 
+* Request completely sent off
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+< HTTP/1.1 200 OK
+< Server: nginx/1.28.3 (Ubuntu)
+< Date: Wed, 30 Sep 2026 07:43:11 GMT
+< Content-Type: application/json
+< Content-Length: 37
+< Connection: keep-alive
+< Cache-Control: max-age=60
+< ETag: "a85ce6dc38d58f6bba63832b5258b8c5012f84b23ef1b678134039eacaae717c"
+< X-Backend: A
+< 
+* Connection #0 to host app.cn.test:443 left intact
+{"backend": "A", "status": "running"}

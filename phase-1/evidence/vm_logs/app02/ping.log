@@ -1,0 +1,33 @@
+client02@app02:~$ ip -br addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s5           UP             10.211.55.8/24 fdb2:2c26:f4e4:0:21c:42ff:fe9d:5ced/64 fe80::21c:42ff:fe9d:5ced/64 
+client02@app02:~$ ping -c 4 10.211.55.5
+PING 10.211.55.5 (10.211.55.5) 56(84) bytes of data.
+64 bytes from 10.211.55.5: icmp_seq=1 ttl=64 time=1.52 ms
+64 bytes from 10.211.55.5: icmp_seq=2 ttl=64 time=0.837 ms
+64 bytes from 10.211.55.5: icmp_seq=3 ttl=64 time=0.414 ms
+64 bytes from 10.211.55.5: icmp_seq=4 ttl=64 time=0.629 ms
+
+--- 10.211.55.5 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3075ms
+rtt min/avg/max/mdev = 0.414/0.849/1.518/0.413 ms
+client02@app02:~$ ping -c 4 10.211.55.6
+PING 10.211.55.6 (10.211.55.6) 56(84) bytes of data.
+64 bytes from 10.211.55.6: icmp_seq=1 ttl=64 time=2.84 ms
+64 bytes from 10.211.55.6: icmp_seq=2 ttl=64 time=0.433 ms
+64 bytes from 10.211.55.6: icmp_seq=3 ttl=64 time=0.993 ms
+64 bytes from 10.211.55.6: icmp_seq=4 ttl=64 time=0.576 ms
+
+--- 10.211.55.6 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3022ms
+rtt min/avg/max/mdev = 0.433/1.209/2.835/0.960 ms
+client02@app02:~$ ping -c 4 10.211.55.7
+PING 10.211.55.7 (10.211.55.7) 56(84) bytes of data.
+64 bytes from 10.211.55.7: icmp_seq=1 ttl=64 time=2.37 ms
+64 bytes from 10.211.55.7: icmp_seq=2 ttl=64 time=1.48 ms
+64 bytes from 10.211.55.7: icmp_seq=3 ttl=64 time=1.03 ms
+64 bytes from 10.211.55.7: icmp_seq=4 ttl=64 time=0.638 ms
+
+--- 10.211.55.7 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3006ms
+rtt min/avg/max/mdev = 0.638/1.378/2.365/0.642 ms

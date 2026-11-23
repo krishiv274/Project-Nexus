@@ -1,0 +1,16 @@
+# Extension C rules as applied on app01 (Backend A, port 3001), in iptables-save format.
+# NOTE: reconstructed from the commands visible in images/p2_fig16_firewall_rules.png
+# (PHASE2_GUIDE.md Step 5.3); not captured with iptables-save while active.
+# Restore:  sudo iptables-restore < iptables-ext-c-applied.rules
+# Rollback: sudo iptables-restore < iptables-before-ext-c.rules
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+# 1. local traffic (edge02 on this VM calling Backend A)
+-A INPUT -i lo -p tcp -m tcp --dport 3001 -j ACCEPT
+# 2. primary edge edge01
+-A INPUT -s 10.211.55.6/32 -p tcp -m tcp --dport 3001 -j ACCEPT
+# 3. everyone else is silently dropped
+-A INPUT -p tcp -m tcp --dport 3001 -j DROP
+COMMIT

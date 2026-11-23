@@ -1,0 +1,21 @@
+edge01@edge01:~$ curl -i http://app.cn.test/api/status
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Sun, 27 Sep 2026 19:01:35 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: keep-alive
+X-Backend: A
+
+{"backend": "A", "status": "ok"}
+
+edge01@edge01:~$ curl -i http://app.cn.test/api/status
+HTTP/1.1 200 OK
+Server: nginx/1.28.3 (Ubuntu)
+Date: Sun, 27 Sep 2026 19:01:42 GMT
+Content-Type: application/json
+Content-Length: 32
+Connection: keep-alive
+X-Backend: B
+
+{"backend": "B", "status": "ok"}

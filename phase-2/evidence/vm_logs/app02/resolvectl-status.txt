@@ -1,0 +1,6 @@
+Link 2 (enp0s5)
+    Current Scopes: DNS
+         Protocols: +DefaultRoute -LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+Current DNS Server: 10.211.55.5
+       DNS Servers: 10.211.55.5 10.211.55.7
+     Default Route: yes

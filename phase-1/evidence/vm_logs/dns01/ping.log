@@ -1,0 +1,33 @@
+dns01@dns01:~$ ip -br addr
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s5           UP             10.211.55.5/24 fdb2:2c26:f4e4:0:21c:42ff:fe33:e129/64 fe80::21c:42ff:fe33:e129/64 
+dns01@dns01:~$ ping -c 4 10.211.55.6
+PING 10.211.55.6 (10.211.55.6) 56(84) bytes of data.
+64 bytes from 10.211.55.6: icmp_seq=1 ttl=64 time=2.08 ms
+64 bytes from 10.211.55.6: icmp_seq=2 ttl=64 time=1.27 ms
+64 bytes from 10.211.55.6: icmp_seq=3 ttl=64 time=1.91 ms
+64 bytes from 10.211.55.6: icmp_seq=4 ttl=64 time=0.609 ms
+
+--- 10.211.55.6 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 0.609/1.467/2.077/0.579 ms
+dns01@dns01:~$ ping -c 4 10.211.55.7
+PING 10.211.55.7 (10.211.55.7) 56(84) bytes of data.
+64 bytes from 10.211.55.7: icmp_seq=1 ttl=64 time=2.52 ms
+64 bytes from 10.211.55.7: icmp_seq=2 ttl=64 time=0.934 ms
+64 bytes from 10.211.55.7: icmp_seq=3 ttl=64 time=0.973 ms
+64 bytes from 10.211.55.7: icmp_seq=4 ttl=64 time=1.00 ms
+
+--- 10.211.55.7 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3010ms
+rtt min/avg/max/mdev = 0.934/1.356/2.515/0.669 ms
+dns01@dns01:~$ ping -c 4 10.211.55.8
+PING 10.211.55.8 (10.211.55.8) 56(84) bytes of data.
+64 bytes from 10.211.55.8: icmp_seq=1 ttl=64 time=1.92 ms
+64 bytes from 10.211.55.8: icmp_seq=2 ttl=64 time=1.90 ms
+64 bytes from 10.211.55.8: icmp_seq=3 ttl=64 time=0.897 ms
+64 bytes from 10.211.55.8: icmp_seq=4 ttl=64 time=0.985 ms
+
+--- 10.211.55.8 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3007ms
+rtt min/avg/max/mdev = 0.897/1.426/1.919/0.486 ms

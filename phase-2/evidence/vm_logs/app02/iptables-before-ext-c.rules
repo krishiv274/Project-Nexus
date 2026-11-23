@@ -1,0 +1,1 @@
+# app02 had no iptables rules before Extension C (iptables-save printed nothing). This is the original state that Step 6.8 restores.
